@@ -4,20 +4,22 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Column(
         children: <Widget>[
           new Stack(
             alignment: Alignment.bottomCenter,
             children: <Widget>[
-              Image.asset('assets/collaboration.png', width: MediaQuery.of(context).size.width/1.5,),
+              Image.asset(
+                'assets/collaboration.png',
+                width: MediaQuery.of(context).size.width / 1.5,
+              ),
               WavyHeader(),
             ],
           ),
           Expanded(
-            child: Container(
-            ),
+            child: Container(),
           ),
           Stack(
             alignment: Alignment.bottomLeft,
@@ -164,12 +166,12 @@ class FooterWaveClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-class YellowCircleClipper extends CustomClipper<Rect> {
+class YellowCircleClipper extends CustomClipper<Rect?> {
   @override
-  Rect getClip(Size size) {
+  Rect? getClip(Size size) {
     return null;
   }
 
   @override
-  bool shouldReclip(CustomClipper<Rect> oldClipper) => false;
+  bool shouldReclip(CustomClipper<Rect?> oldClipper) => false;
 }
